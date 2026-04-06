@@ -1,0 +1,15 @@
+// Float and Exponential
+module tb;
+  shortreal pi;
+  shortreal fr;
+  initial begin
+    pi = 3.14;
+    fr = 10e6;
+    $display("pi=%f",pi);
+    $display("pi=%0.3f",pi);
+    $display("fr=%d",fr);
+  end
+endmodule
+
+
+

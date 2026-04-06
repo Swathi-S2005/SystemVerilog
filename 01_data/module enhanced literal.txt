@@ -1,0 +1,32 @@
+module enhanced_literal #(parameter n=8, width=3);
+
+  logic [width-1:0] my_var1, my_var2, my_var3, my_var4, my_var5;
+
+  initial begin
+    my_var1 = 'h0;
+    my_var2 = 'h1;
+    my_var3 = 'hx;
+    my_var4 = 'hz;
+    my_var5 = {width{1'b1}};
+  end
+
+endmodule
+
+
+module tb;
+  parameter width = 3;
+
+  logic [width-1:0] my_var1, my_var2, my_var3, my_var4, my_var5;
+
+  initial begin 
+    my_var1 = '1;
+    my_var2 = '1;
+    my_var3 = 'hx;
+    my_var4 = 'hz;
+    my_var5 = {width{1'b1}};
+
+    $display("my_var1=%b | my_var2=%b | my_var3=%b | my_var4=%b | my_var5=%b",
+              my_var1, my_var2, my_var3, my_var4, my_var5);
+  end
+endmodule
+
