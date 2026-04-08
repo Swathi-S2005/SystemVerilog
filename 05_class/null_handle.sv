@@ -15,4 +15,11 @@ module tb;
   end
 endmodule
 
+    /* output 
     
+    # run -all
+# null
+# exit
+
+*/
+

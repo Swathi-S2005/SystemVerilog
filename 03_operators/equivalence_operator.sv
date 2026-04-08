@@ -1,0 +1,23 @@
+ 
+
+
+module tb;
+  logic [7:0]a,b;
+  initial begin
+    a=8'h11;
+    b=8'haa;
+    $display("a=%0b|b=%0b|a<->b=%0b",a,b,(a<->b));
+  end
+endmodule
+
+    
+/*
+
+(exp1 -> exp2) &&  (exp2 -> exp1)
+a b a<->b
+0 0 1
+0 1 0
+1 0 0
+1 1 1
+*/
+
