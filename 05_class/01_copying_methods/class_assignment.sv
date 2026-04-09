@@ -18,7 +18,7 @@ module tb;
   assignment pkt1;
   assignment pkt2;
   initial begin
-    pkt1 = new("porsche",32'h1bbccdd,32'h10ccaabb);
+    pkt1 = new("porsche",32'h1bbccdd,32'h911);
     pkt1.display("pkt1");
     
     pkt2 = pkt1;
@@ -26,7 +26,7 @@ module tb;
     
     pkt1.name = "ferrari";
     pkt1.price = 32'h12345678;
-    pkt1.features = 32'h01cdefab;
+    pkt1.features = 32'h110;
     
     pkt2.display("pkt2");
   end
