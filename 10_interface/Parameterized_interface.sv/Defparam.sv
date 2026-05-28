@@ -1,0 +1,72 @@
+// Code your design here
+module counter (count_inf inf);
+  always @(posedge inf.clk)
+    begin
+      if(inf.reset_n)
+        inf.count <= 0;
+      else
+        inf.count <= inf.count+1;
+    end
+endmodule
+
+
+// Code your testbench here
+// or browse Examples
+interface count_inf #(parameter N=3);
+  logic clk,reset_n;
+  logic [N:0]count;
+endinterface
+
+
+module tb;
+  count_inf inf();
+  defparam inf.N=2;
+  counter dut(inf);
+  
+  always #5 inf.clk = ~ inf.clk;
+  
+   initial begin
+     $monitor("clk=%0b|reset_n=%0b|count=%0d",inf.clk,inf.reset_n,inf.count);
+    $dumpvars(0,tb);
+     $dumpfile("counter.vcd");
+   
+    inf.clk=0;
+     inf.reset_n=1;
+     #20 inf.reset_n=0;
+    
+     
+    #100 $finish;
+  end
+endmodule
+
+
+/* output
+clk=0|reset_n=1|count=x
+# clk=1|reset_n=1|count=0
+# clk=0|reset_n=1|count=0
+# clk=1|reset_n=1|count=0
+# clk=0|reset_n=0|count=0
+# clk=1|reset_n=0|count=1
+# clk=0|reset_n=0|count=1
+# clk=1|reset_n=0|count=2
+# clk=0|reset_n=0|count=2
+# clk=1|reset_n=0|count=3
+# clk=0|reset_n=0|count=3
+# clk=1|reset_n=0|count=4
+# clk=0|reset_n=0|count=4
+# clk=1|reset_n=0|count=5
+# clk=0|reset_n=0|count=5
+# clk=1|reset_n=0|count=6
+# clk=0|reset_n=0|count=6
+# clk=1|reset_n=0|count=7
+# clk=0|reset_n=0|count=7
+# clk=1|reset_n=0|count=0
+# clk=0|reset_n=0|count=0
+# clk=1|reset_n=0|count=1
+# clk=0|reset_n=0|count=1
+# clk=1|reset_n=0|count=2
+# ** Note: $finish    : testbench.sv(26)
+
+*/
+
+
