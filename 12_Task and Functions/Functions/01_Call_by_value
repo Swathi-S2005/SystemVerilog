@@ -1,0 +1,28 @@
+// Code your testbench here
+// or browse Examples
+module tb;
+  int a,b;
+  int result;
+  
+  function int add(int a,b);
+    $display("Time=%0t, a=%0d,b=%0d",$time,a,b);
+    return a+b;
+  endfunction
+  
+  initial begin
+    result = add(5,6);
+    $display("Time=%0t, a=%0d,b=%0d,result  %0d",$time,a,b,result);
+    //module a,b != function a,b
+    $display("original value a=%0d",a);
+  end
+endmodule
+
+
+//output 
+/*
+ run -all
+# Time=0, a=0,b=0,result  11
+# original value a=0
+# exit
+
+*/
