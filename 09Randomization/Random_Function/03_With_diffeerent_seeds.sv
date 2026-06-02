@@ -16,11 +16,15 @@ module tb;
         b=$urandom(seed2);
         $display("$urandom with seed2=%0d",b);
       end
+      repeat(3)
+      begin
     b=$random(seed1);
-    $display("$random with seed1=%0d",b);
+    $display("$random with seed1=%0d|=%0d",b,seed1);
     
     c=$random(seed2);
     $display("$random with seed2 = %0d",c);
+    end
+    
     
     
     

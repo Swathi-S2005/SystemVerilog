@@ -1,0 +1,68 @@
+module tb;
+  int a;
+  bit [4:0] b;
+  byte c;
+  int d;
+  
+  
+  initial begin
+    
+  
+  $display("========================================================================");
+  $display("==========================SCOPE RANDOMIZE :: ===========================");
+  $display("========================================================================");
+  
+    
+    repeat(3)
+      begin
+
+        std :: randomize(a);
+        $display("The value of a is =%0d", a);
+        
+        std :: randomize(b) with {b>4;};
+        $display("The value of b is =%0d",b);
+    
+        std :: randomize(a,b);
+        $display("The value of a=%0d and b=%0d",a,b);
+    
+        std :: randomize(c,d) with { c>5; d>8;};
+        $display("The value of c =%0d and d =%0d",c,d);
+        #10;
+        
+        
+      end
+  end
+  
+endmodule
+    
+    
+//output
+
+/*
+
+run -all
+# ========================================================================
+# ==========================SCOPE RANDOMIZE :: ===========================
+# ========================================================================
+# The value of a is =-834229725
+# The value of b is =13
+# The value of a=1555380746 and b=29
+# The value of c =86 and d =106855929
+# The value of a is =1771474650
+# The value of b is =9
+# The value of a=-526243668 and b=18
+# The value of c =94 and d =822200564
+# The value of a is =-1544933186
+# The value of b is =22
+# The value of a=1069077208 and b=9
+# The value of c =100 and d =1800954850
+# exit
+
+*/
+
+    
+    
+    
+    
+    
+    a

@@ -50,7 +50,7 @@ module tb;
     for(int i =0;i<5;i++)
       begin
         if(received[i]== null)
-    received[i] = new();
+            received[i] = new();
       end
     
     received[3].data1 = "Hyundai";
