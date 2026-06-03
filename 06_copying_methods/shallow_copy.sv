@@ -60,7 +60,14 @@ module tb;
     
     bag1.display("bag1");
     bag2.display("bag2");
-   
+    
+    bag2.pkt.things["charger"]=0;
+    bag2.pkt.things["lunchbox"]=2;
+    bag2.pkt.things["notes"] = 9;
+    
+    bag1.display();
+    bag2.display();
+    
   end
 endmodule
 
